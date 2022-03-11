@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from algorithms.Genetic import Genetic
 from algorithms.HS import HS
 from algorithms.PSO import PSO
+from algorithms.CSO import CSO
 from diff_time import diff_time
 from algorithms.HC import HC
 from algorithms.SAHC import SAHC
@@ -47,7 +48,17 @@ if __name__ == '__main__':
     my_pso = PSO([['max_efos', max_iterations], ['swarm_size', 20],
                   ['alfa', 0.3], ['beta', 0.2], ['delta', 0.5], ['epsilon', 1]])
 
-    my_algorithms = [my_pso, my_hs] #, my_genetic, my_hc , my_sahc]
+    my_cso = CSO([
+        ['max_efos', max_iterations], 
+        ['swarm_size', 20],
+        ['alfa', 0.3], 
+        ['beta', 0.2], 
+        ['delta', 0.5], 
+        ['epsilon', 1],
+        ['mr', 2]
+    ])
+
+    my_algorithms = [my_cso]#, my_pso, my_hs] #, my_genetic, my_hc , my_sahc]
 
     for my_function in my_functions:
         x = np.arange(max_iterations)
