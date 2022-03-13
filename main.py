@@ -22,16 +22,10 @@ if __name__ == '__main__':
     my_schwefel = schwefel(-100, 100)
     my_rastrigin = rastrigin(-5.12, 5.12)
     my_griewank = griewank(-600, 600)
-    my_ackley = ackley(-32, 32)
-    my_functions = [my_sphere, my_step, my_schwefel, my_rastrigin,
-                    my_griewank, my_ackley]
-
-    #cells = np.array([1.1, 2.2, 3.3, 4.4])
-    #result = my_rastrigin.evaluate(cells)
-    #print(result)
+    my_functions = [my_sphere, my_step, my_schwefel, my_rastrigin,my_griewank]
 
     max_iterations = 1000
-    dimensions = 6
+    dimensions = 15
     max_repetitions = 31
 
     my_hc = HC([['max_iterations', max_iterations], ['mode', 1], ['bandwidth', 0.8],
@@ -51,14 +45,14 @@ if __name__ == '__main__':
     my_cso = CSO([
         ['max_efos', max_iterations], 
         ['swarm_size', 20],
-        ['alfa', 0.3], 
-        ['beta', 0.2], 
-        ['delta', 0.5], 
-        ['epsilon', 1],
-        ['mr', 2]
+        ['c1',2],
+        ['SMP',3],
+        ['SRD',2],
+        ['CDC',3],
+        ['mr',2]
     ])
 
-    my_algorithms = [my_cso]#, my_pso, my_hs] #, my_genetic, my_hc , my_sahc]
+    my_algorithms = [my_cso,my_pso, my_hs, my_genetic, my_hc , my_sahc]
 
     for my_function in my_functions:
         x = np.arange(max_iterations)
