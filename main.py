@@ -49,6 +49,7 @@ if __name__ == '__main__':
         ['SMP',3],
         ['SRD',2],
         ['CDC',3],
+        ['SPC',True],
         ['mr',2]
     ])
 

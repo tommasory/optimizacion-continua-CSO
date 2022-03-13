@@ -12,6 +12,7 @@ class CSO:
         self.SMP = pars[[x[0] for x in pars].index('SMP')][1] 
         self.SRD = pars[[x[0] for x in pars].index('SRD')][1]
         self.CDC = pars[[x[0] for x in pars].index('CDC')][1]
+        self.SPC = pars[[x[0] for x in pars].index('SPC')][1]
         self.MR = pars[[x[0] for x in pars].index('mr')][1]
 
     def evolve(self, f, d: int):
@@ -41,7 +42,7 @@ class CSO:
         count = self.swarm_size
         for steps in range(1, max_steps):
             for p in range(self.swarm_size):
-                swarm[p].move(self.C1, self.SMP, self.SRD, self.CDC, self.best.cells)
+                swarm[p].move(self.C1, self.SMP, self.SRD, self.CDC, self.SPC, self.best.cells)
                 if swarm[p].fitness < self.best.fitness:
                     self.best.from_cat(swarm[p])
                 y[count] = self.best.fitness

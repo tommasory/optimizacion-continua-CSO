@@ -33,11 +33,13 @@ class cat(solution):
         self.bestcells = np.copy(self.cells)
         self.bestfitness = self.fitness
 
-    def move(self, c1, smp, srd, cdc, best_cells):
+    def move(self, c1, smp, srd, cdc, spc, best_cells):
         if self.behavior == Behavior.SEEKING:
             smp_cats = []
 
             """(1)	Make as many as SMP copies of the current position of Catk."""
+            if spc:
+                smp = smp - 1
 
             for _ in range(smp):
                 c = cat(self.size,self.function)
