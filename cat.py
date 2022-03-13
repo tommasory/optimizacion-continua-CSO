@@ -38,13 +38,14 @@ class cat(solution):
             smp_cats = []
 
             """(1)	Make as many as SMP copies of the current position of Catk."""
-            if spc:
-                smp = smp - 1
-
             for _ in range(smp):
                 c = cat(self.size,self.function)
                 c.from_cat(self)
                 smp_cats.append(c)
+
+            if spc:
+                smp_cats.pop()
+                smp_cats.append(self)
 
             """
             (2)	For each copy, randomly select as many as CDC dimensions to be mutated. Moreover, randomly add or subtract SRD values from the current values, which replace the old positions as shown in the following equation:
